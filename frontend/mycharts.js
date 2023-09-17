@@ -8,13 +8,13 @@ function geraGrafico(){
     var labels = []; // Os rótulos do eixo x
     var data = []; // Os valores do eixo y
     // Percorrer as linhas da tabela, começando pela segunda linha (ignorando o cabeçalho)
-    for (var i = 1; i < rowCount-1; i++) {
+    for (var i = 1; i < 10; i++) {
         // Obter a referência da linha atual
         var row = table.rows[i];
         // Obter o texto da primeira célula da linha (o rótulo)
         var label = row.cells[0].innerText;
         // Obter o texto da segunda célula da linha (o valor)
-        var value = row.cells[4].innerText;
+        var value = row.cells[3].innerText;
         // Adicionar o rótulo e o valor aos arrays correspondentes
         labels.push(label);
         data.push(value);

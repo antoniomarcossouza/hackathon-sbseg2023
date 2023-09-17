@@ -2,13 +2,24 @@ const { value: relatorio } = Swal.fire({
     title: 'Gerador de Relatórios',
     input: 'select',
     inputOptions: {
-        'Relatórios Completos': {
-            alert_report: 'Relatório 1',
-            alert_report2: 'Relatório 2',
+        'Relatórios': {
+            destinos_atacados: 'Relatório 1 - Destinos Atacados',
+            origens_que_mais_atacaram: 'Relatório 2 - Origens que mais Atacaram',
+            alert_report: 'Relatório 3 - Categorias de Ataque mais Frequentes',
+            alert_report2: 'Relatório 4 - Categorias de cada Severidade',
+        },
+        'Relatórios Críticos': {
+            port_21: 'Relatório Porta 21',
+            port_22: 'Relatório Porta 22',
+            port_445: 'Relatório Porta 445',
+            port_3389: 'Relatório Porta 3389',
+            port_5900: 'Relatório Porta 5900',
+
         },
         'Relatórios Parciais': {
             signatures_data: 'Dados de Assinatura',
-            payload_scrapping: 'Scrapping do Payload',
+            severity_total: 'Total de Severidade',
+            suricata_categorization: 'Categorização do Suricata',
         },
     },
     inputPlaceholder: 'Selecione um Relatório',
