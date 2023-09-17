@@ -9,6 +9,8 @@ const { value: relatorio } = Swal.fire({
             alert_report2: 'Relatório 4 - Categorias de cada Severidade',
         },
         'Relatórios Críticos': {
+            alvos_portas_criticas: 'Relatório PORTs Críticas como Alvo',
+            atacantes_portas_criticas: 'Relatório PORTs Críticas como Atacante',
             port_21: 'Relatório Porta 21',
             port_22: 'Relatório Porta 22',
             port_445: 'Relatório Porta 445',
