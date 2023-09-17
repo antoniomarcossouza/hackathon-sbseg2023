@@ -10,11 +10,10 @@ db_config = {
     "port": "5432",
 }
 
-def fetch_data(table_name: str) -> list:
+def fetch_data(query:str) -> list:
     try:
         with psycopg2.connect(**db_config) as connection:
             with connection.cursor() as cursor:
-                query = f"SELECT * FROM {table_name} LIMIT 1000;"
                 cursor.execute(query)
 
                 result = cursor.fetchall()
@@ -38,11 +37,11 @@ def whois(ip: str) -> str:
 def check_open_port(ip: str, port: int) -> bool:
     return 0
 
-@app.route("/alerts", methods=["GET", "POST"])
+@app.route("/alertas", methods=["GET", "POST"])
 def show_alerts():
     match request.method:
         case "GET":
-            return jsonify(fetch_data(table_name="suricata_logs"))
+            return jsonify(fetch_data(query="SELECT * FROM suricata_logs LIMIT 1000;"))
         case "POST":
             json = request.get_json()
             query = f"""
@@ -84,6 +83,9 @@ VALUES (
             except Exception as e:
                 return "Internal Server Error", 500
 
+@app.route('/incidentes', methods=['GET'])
+def get_incidents():
+    return jsonify(fetch_data("SELECT * FROM alerts_responses WHERE incitent IS TRUE;"))
 
 if __name__ == "__main__":
     app.run(debug=True)
