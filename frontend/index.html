@@ -26,6 +26,7 @@
 
     <script src="arraytotable.js"></script>
     <script src="mycharts.js"></script>
+
     <header id="nav-wrapper">
         <nav id="nav" class="navbar-expand-lg" style="font: 'Saira Semi Condensed', sans-serif;">
             <div class="nav left">
@@ -47,18 +48,10 @@
             <div class="nav right collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar ulnav">
-
-                    <li class="dropdown">
-                        <a class="nav-link dropdown-toggle">
-                            <span class="nav-link-span">
-                                <span class="u-nav" onclick="geraGrafico()">Carregar Gráficos</span>
-                            </span>
-                        </a>
-                    </li>
                     <li>
                         <a class="nav-link">
                             <span class="nav-link-span">
-                                <span class="u-nav" id="generate_graphs">Filtrar</span>
+                                <span class="u-nav" id="filter">Filtrar</span>
                             </span>
                         </a>
                     </li>
@@ -91,8 +84,12 @@
             background-attachment: fixed;
         }
     </style>
+
     <div class="row justify-content-center contentpanel1">
         <canvas id="myChart" width = 600 height = 320></canvas>
+    </div>
+    <div class="row justify-content-center contentpanel2">
+        <input type="text" id="search" placeholder="Search">
     </div>
     <div class="row justify-content-center contentpanel2">
         <div class="col-md-auto">
@@ -100,38 +97,5 @@
         </div>
     </div>
 
-    <script>
-
-        // Swal.fire({
-        //     title: 'Bem vindo!',
-        //     background: '#2c3034',
-        //     iconColor: '#8cb73c',
-        //     color:'#8cb73c',
-        //     html: 'Os relatórios de alerta disponíveis são esses a seguir: <br> alert_report <br> alert_report2 <br> payload_scrapping <br> signatures_data <br> suricata_categorization',
-        //     icon: 'info',
-        //     confirmButtonText: 'OK',
-        // })
-        // const { value: relatorio } = Swal.fire({
-        //     title: 'Gerador de Relatórios',
-        //     input: 'select',
-        //     inputOptions: {
-        //         'Relatórios Completos': {
-        //             alert_report: 'Relatório 1',
-        //             alert_report2: 'Relatório 2',
-        //         },
-        //         'Relatórios Parciais': {
-        //             signatures_data: 'Dados de Assinatura',
-        //             payload_scrapping: 'Scrapping do Payload',
-        //         },
-        //     },
-        //     inputPlaceholder: 'Selecione um Relatório',
-        //     inputValidator: (value) => {
-        //         return new Promise((resolve) => {
-        //             resolve()
-        //         })
-        //     }
-        // })
-
-    </script>
 </body>
 </html>

@@ -25,9 +25,10 @@ const { value: relatorio } = Swal.fire({
         $(document).ready(function() {
         $.ajax({
             type: "GET",
-            url: "Tables/" + csv_name + ".csv", // use the value from the Swal fire
+            url: "data/" + csv_name + ".csv", // use the value from the Swal fire
             success: function(data) {
             $('#alerts_table').html(arrayToTable(Papa.parse(data).data));
+            geraGrafico();
             }
         });
     });
