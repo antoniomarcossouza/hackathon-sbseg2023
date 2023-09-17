@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Exemplo</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- jquery -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- papa parse / mmakes csv to array object -->
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.min.js> </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="arraytotable.js"></script>
+    <script src="mycharts.js"></script>
+    <header id="nav-wrapper">
+        <nav id="nav" class="navbar-expand-lg" style="font: 'Saira Semi Condensed', sans-serif;">
+            <div class="nav left">
+                <span class="gradient skew">
+                    <h1 class="logo un-skew">
+                        <a href="/index.html">SuriGraphs</a>
+                        <i class="bell"></i>
+                    </h1>
+                </span>
+
+                <button id="menu" class="btn-nav" type="button"
+                    data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                >
+                    <span class="fas fa-bars"></span>
+                </button>
+            </div>
+
+            <div class="nav right collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar ulnav">
+
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle">
+                            <span class="nav-link-span">
+                                <span class="u-nav" onclick="geraGrafico()">Carregar Gráficos</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link">
+                            <span class="nav-link-span">
+                                <span class="u-nav" id="generate_graphs">Filtrar</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link">
+                            <span class="nav-link-span">
+                                <span class="u-nav" id="load_data">Carregar Dados</span>
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <style>
+        .contentpanel1 {
+            background-color: #000000;
+            border-radius: 0.75rem;
+            background-size: cover;
+            background-attachment: fixed;
+            margin-top: 5rem;
+        }
+        .contentpanel2 {
+            background-color: #000000;
+            border-radius: 0.75rem;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <div class="row justify-content-center contentpanel1">
+        <canvas id="myChart" width = 600 height = 320></canvas>
+    </div>
+    <div class="row justify-content-center contentpanel2">
+        <div class="col-md-auto">
+            <div id="alerts_table"></div>
+        </div>
+    </div>
+
+    <script>
+
+        // Swal.fire({
+        //     title: 'Bem vindo!',
+        //     background: '#2c3034',
+        //     iconColor: '#8cb73c',
+        //     color:'#8cb73c',
+        //     html: 'Os relatórios de alerta disponíveis são esses a seguir: <br> alert_report <br> alert_report2 <br> payload_scrapping <br> signatures_data <br> suricata_categorization',
+        //     icon: 'info',
+        //     confirmButtonText: 'OK',
+        // })
+        // const { value: relatorio } = Swal.fire({
+        //     title: 'Gerador de Relatórios',
+        //     input: 'select',
+        //     inputOptions: {
+        //         'Relatórios Completos': {
+        //             alert_report: 'Relatório 1',
+        //             alert_report2: 'Relatório 2',
+        //         },
+        //         'Relatórios Parciais': {
+        //             signatures_data: 'Dados de Assinatura',
+        //             payload_scrapping: 'Scrapping do Payload',
+        //         },
+        //     },
+        //     inputPlaceholder: 'Selecione um Relatório',
+        //     inputValidator: (value) => {
+        //         return new Promise((resolve) => {
+        //             resolve()
+        //         })
+        //     }
+        // })
+
+    </script>
+</body>
+</html>

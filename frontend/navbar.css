@@ -1,0 +1,228 @@
+/*-------------Reset-------------*/
+button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:focus,
+  input:focus {
+    outline: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /*-------------Helpers-------------*/
+  .skew {
+    transform: skew(-20deg);
+  }
+
+  .un-skew {
+    transform: skew(20deg);
+  }
+
+  /*-------------Nav-------------*/
+  #nav-wrapper {
+    overflow: visible;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  #nav {
+    background-color: #8cb73c;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    font-family: "Saira Semi Condensed", sans-serif !important;
+    height: 4em;
+    overflow: visible;
+  }
+  #nav.nav-visible {
+    height: 100%;
+    overflow: auto;
+  }
+
+  .nav {
+    display: flex;
+    height: 2rem;
+    line-height: 3rem;
+    flex-grow: 1;
+  }
+
+  .nav-link,
+  .logo {
+    padding: 0 1em;
+  }
+
+  span.gradient {
+    background: #212529;
+    background: linear-gradient(45deg, #212529, #2c3034);
+    padding: 0 1rem;
+    position: relative;
+    right: 1rem;
+    margin-right: auto;
+    border-radius: 0.3rem;
+  }
+  span.gradient:hover {
+    animation-name: logo-hover;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
+  }
+
+  h1.logo {
+    font-weight: 700;
+    font-size: 1.8em;
+    line-height: 3.75rem;
+    color: #8cb73c;
+  }
+
+  h1.logo a, a:active, a:hover, a:visited {
+    text-decoration: none;
+    color: #8cb73c;
+  }
+
+  .nav-link {
+    text-transform: uppercase;
+    text-align: center;
+    border-top: 0.5px solid #2c3034;
+    background-color: #8cb73c;
+  }
+
+  a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #ade5e5;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .nav-menu {
+    background-color: #8cb73c;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .btn-nav {
+    color: #212529;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .ulnav {
+    background-color: #8cb73c;
+    margin-top: 2rem;
+    list-style-type: none;
+    justify-content: flex-start;
+  }
+
+  .menubutton {
+    font-family: "Saira Semi Condensed", sans-serif !important;
+    font-size: small;
+  }
+
+  @media (min-width: 800px) {
+    #nav-wrapper {
+      overflow: visible;
+    }
+    #nav {
+      overflow: visible;
+      flex-direction: row;
+      background-color: rgba(255, 255, 255, 0);
+      border-color: rgba(255, 255, 255, 0);
+      -webkit-backdrop-filter: blur(0.48rem);
+              backdrop-filter: blur(0.48rem);
+      box-shadow: 0.5rem 0.5rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+    }
+    .nav-link {
+      border-top: none;
+    }
+    .right {
+      overflow: visible;
+      flex-direction: row;
+      justify-content: flex-end;
+      position: relative;
+      left: 1.5em;
+      height: auto;
+    }
+    .ulnav {
+      background-color: rgba(255, 255, 255, 0);
+      margin-top: 0rem;
+    }
+    .btn-nav {
+      display: none;
+    }
+    .nav a:link.active, a:visited.active, a:active.active {
+      background: #2c3034;
+      background: linear-gradient(45deg, #2c3034, #2c3034);
+      color: #fff;
+    }
+    .nav-link-span {
+        color: #8cb73c;
+      transform: skew(20deg);
+      display: inline-block;
+    }
+    .nav-link {
+      transform: skew(-20deg);
+      border-style: outset;
+      border-color: #8cb73c !important;
+      border-width: 0.2rem;
+      border-radius: 1rem;
+      -webkit-backdrop-filter: blur(0.48rem);
+              backdrop-filter: blur(0.48rem);
+      margin-bottom: 0.3rem;
+      border-style: outset;
+      border-width: 0.1rem 0rem;
+      background-color: #212529;
+    }
+    .nav-menu {
+      background-color: rgba(255, 255, 255, 0);
+      border-color: rgba(255, 255, 255, 0);
+    }
+    .nav-item {
+      transform: skew(-20deg);
+      border-style: outset;
+      border-color: #8cb73c !important;
+      border-width: 0.2rem;
+      border-radius: 1rem;
+      -webkit-backdrop-filter: blur(0.48rem);
+              backdrop-filter: blur(0.48rem);
+      margin-bottom: 0.3rem;
+      background-color: #212529;
+      opacity: 0.95;
+    }
+    .ultimonav {
+      padding-right: 2em;
+    }
+    a:hover.nav-link:not(.active) {
+      color: #8cb73c;
+      background: #2c3034;
+      background: linear-gradient(45deg, #000000, #2c3034);
+    }
+    .nav-item:hover {
+      color: #8cb73c;
+      border-color: #8cb73c;
+      background: #2c3034;
+      background: linear-gradient(45deg, #000000, #2c3034);
+    }
+  }
+  @keyframes logo-hover {
+    20% {
+      padding-right: 0em;
+    }
+    100% {
+      padding-right: 5em;
+    }
+  }/*# sourceMappingURL=navbar.css.map */
