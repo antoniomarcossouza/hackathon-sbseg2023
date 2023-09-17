@@ -1,18 +1,25 @@
 function filterTable() {
-    var search = document.getElementById('search').value.toLowerCase();
-    var column = parseInt(document.getElementById('column').value);
-    var table = document.getElementById(alerts_table_content);
-    for (var i = 1; i < table.rows.length; i++) {
-        var row = table.rows[i];
-        var cell = row.cells[column].textContent.toLowerCase();
-        if (cell.indexOf(search) > -1) {
-            row.style.display = '';
-        } else {
-        row.style.display = 'none'
-        }
-    }
-}
+    var search = $('#search').val().toLowerCase();
+    var column = parseInt($('#column').val());
+    var table = $('#alerts_table_content');
 
+    table.find('tr').each(function (i, row) {
+        var rowMatchesSearch = false;
+        $(row).find('td').each(function (j, cell) {
+            var cellText = $(cell).text().toLowerCase();
+            if (cellText.indexOf(search) > -1) {
+                rowMatchesSearch = true;
+                return false; // Exit the inner loop once a match is found
+            }
+        });
+
+        if (rowMatchesSearch) {
+            $(row).show();
+        } else {
+            $(row).hide();
+        }
+    });
+}
 $(document).ready(function () {
     // Attach an event listener to the search input and column select
     $('#search').on('input change', function () {
