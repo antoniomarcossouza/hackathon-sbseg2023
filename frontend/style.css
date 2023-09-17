@@ -1,0 +1,24 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+  }
+  th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+
+  }
+  th {
+    padding: 0.5rem;
+    background-color: #000000;
+    text-align: center;
+  }
+  /* Estilos CSS para destacar linhas alternadas */
+  tr:nth-child(even) {
+    background-color: #2c3034;
+    }
+    tr:nth-child(odd) {
+    background-color: #212529;
+  }
