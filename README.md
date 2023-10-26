@@ -21,3 +21,5 @@ In the Alert ID we have:
 7: detection count. It indicates how many times this signature has been triggered in the current session.
 
 src https://medium.com/@rubenszimbres/install-a-real-time-intrusion-detection-system-ids-with-suricata-and-python-7ce7ae78c5a3
+
+https://realpython.com/python-microservices-grpc/#why-microservices
