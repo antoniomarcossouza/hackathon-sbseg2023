@@ -4,11 +4,11 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=toor
-      - POSTGRES_DB=main_application
+      - POSTGRES_DB=alert_analysis_companion
     ports:
       - "5432:5432"
     volumes:
-      - "./postgres/main_application:/var/lib/postgresql/data"
+      - "./postgres/alert_analysis_companion:/var/lib/postgresql/data"
       
   pgadmin:
     image: dpage/pgadmin4
