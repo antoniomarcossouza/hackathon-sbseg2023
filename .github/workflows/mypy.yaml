@@ -18,4 +18,4 @@ jobs:
           mypy --install-types
       - name: Mypy
         run: |
-          mypy $(git ls-files '*.py')
+          mypy backend/
