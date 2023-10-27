@@ -1,7 +1,7 @@
 """Microsservice that handles the alerts."""
 from flask import Flask, request, jsonify
 
-from PostgreSQL import PostgreSQL
+from database import PostgreSQL
 
 app = Flask(__name__)
 database = PostgreSQL()
