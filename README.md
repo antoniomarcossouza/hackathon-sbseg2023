@@ -1,9 +1,12 @@
 # Hello, world!
 
 ### Microsservices
-- **Alerts:** Receives alerts from the other services and sends them to the user
-```plaintext
-Timestamp: 08/15/2023–21:46:27.168562
+---
+### Alerts
+
+Receives alerts from the other services and sends them to the user
+```
+Timestamp: 08/15/2023 21:46:27.168562
 Alert ID: 1:2100498:7
 Alert Type: GPL ATTACK_RESPONSE
 Classification: Potentially Bad Traffic
@@ -18,7 +21,9 @@ Receive JSON in this format:
 ```json
 {
   "timestamp": "08/15/2023–21:46:27.168562",
-  "alert_id": "1:2100498:7",
+  "signature": 1,
+  "rule_id": 2100498,
+  "detection_count": 7,
   "alert_type": "GPL ATTACK_RESPONSE",
   "classification": "Potentially Bad Traffic",
   "priority": 2,
@@ -29,21 +34,56 @@ Receive JSON in this format:
   "destination_port": 55312
 }
 ```
-And treat `alert_id` before uploading to the database.
-```json
-"alert_id": {
-    "signature_id": 1,
-    "rule_id": "2100498",
-    "detection_count": 7
-}
+
+```sql
+CREATE TABLE alerts (
+    id VARCHAR PRIMARY KEY,
+    timestamp TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    signature_id INTEGER NOT NULL,
+    rule_id INTEGER NOT NULL,
+    detection_count INTEGER NOT NULL,
+    alert_type VARCHAR NOT NULL,
+    classification VARCHAR NOT NULL,
+    priority INTEGER NOT NULL,
+    protocol VARCHAR NOT NULL,
+    source_ip VARCHAR NOT NULL,
+    source_port INTEGER NOT NULL,
+    destination_ip VARCHAR NOT NULL,
+    destination_port INTEGER NOT NULL
+);
+
 ```
 
-In the Alert ID we have:
+```sql
+INSERT INTO alerts (
+        id,
+        timestamp,
+        signature_id,
+        rule_id,
+        detection_count,
+        alert_type,
+        classification,
+        priority,
+        protocol,
+        source_ip,
+        source_port,
+        destination_ip,
+        destination_port
+    )
+VALUES (
+        '08/15/2023 21:46:27.168562_108.138.128.54_2100498',
+        '08/15/2023 21:46:27.168562',
+        1,
+        2100498,
+        7,
+        'GPL ATTACK_RESPONSE',
+        'Potentially Bad Traffic',
+        2,
+        'TCP',
+        '108.138.128.54',
+        80,
+        '10.5.0.2',
+        55312
+    );
 
-1: signature ID that triggered the alert. In this case, the signature is SURICATA Applayer Detect protocol only one direction.
-2100498: rule ID. It is an internal identifier used by Suricata to track its rules.
-7: detection count. It indicates how many times this signature has been triggered in the current session.
-
-src https://medium.com/@rubenszimbres/install-a-real-time-intrusion-detection-system-ids-with-suricata-and-python-7ce7ae78c5a3
-
-https://realpython.com/python-microservices-grpc/#why-microservices
+```
